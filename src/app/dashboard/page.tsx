@@ -1,22 +1,27 @@
 import { auth, currentUser } from '@clerk/nextjs/server'
+import React from 'react'
+
 export default async function DashboardPage() {
-  // Use `auth()` to access `isAuthenticated` - if false, the user is not signed in
-  const { isAuthenticated } = await auth() // Protect the route by checking if the user is signed in
+  const { isAuthenticated } = await auth()
+
   if (!isAuthenticated) {
-    return <div>Sign in to view this page</div>
-  } // Get the Backend API User object when you need access to the user's information
+    return (
+      <div>Sign in to view this page. 이 페이지를 보려면 로그인하세요.</div>
+    )
+  }
+
   const user = await currentUser()
+  console.log(user)
+
   return (
     <div>
-            <h1 className="text-2xl font-bold mb-5">Dashboard (Server-side)</h1>
-           {' '}
+      <h1 className="text-2xl font-bold mb-5">Dashboard</h1>
+      <p className="mb-2">Welcome to dashboard</p>
       <div className="mb-5">
-                <p>서버측에서 auth, currentUser 함수 이용</p>       {' '}
-        <p>Welcome, {user?.firstName}!</p>       {' '}
-        <p>Email: {user?.primaryEmailAddress?.emailAddress}</p>       {' '}
-        <p>사용자 등록: {user?.createdAt}</p>     {' '}
+        <p>Welcome, {user?.firstName}</p>
+        <p>Email: {user?.primaryEmailAddress?.emailAddress} </p>
+        <p>사용자 등록일: {user?.createdAt} </p>
       </div>
-         {' '}
     </div>
   )
 }
