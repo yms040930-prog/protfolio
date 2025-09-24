@@ -1,18 +1,10 @@
-import { auth, currentUser } from '@clerk/nextjs/server'
+import React from 'react'
 
-export default async function HomePage() {
-  const { isAuthenticated } = await auth()
-
-  if (!isAuthenticated) {
-    return <div>Sign in to view this page</div>
-  }
-
-  const user = await currentUser()
-
+export default function HomePage() {
   return (
     <div>
-      <h1>Welcome Home!</h1>
-      <p>hello world</p>
+      <h1 className="text-2xl font-bold">Welcome Home! </h1>
+      <p> clerk.com을 이용한 인증 </p>
     </div>
   )
 }
