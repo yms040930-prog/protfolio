@@ -1,17 +1,14 @@
-import { githubuser } from '@/types/constants'
-import { GithubContent } from '@/types/github'
-import Link from 'next/link'
-import React from 'react'
+import { githubuser } from '@/types/constant'
+import { GitHubContent } from '@/types/github'
+import Link from 'next/link' // Adjust the path as needed
 
 interface RepoProps {
   name: string
 }
 
-const username = githubuser
-
 export default async function RepoDirs({ name }: RepoProps) {
-  await new Promise((resolve) => setTimeout(resolve, 1000))
-
+  const username = githubuser
+  await new Promise((resolve) => setTimeout(resolve, 2000))
   const response = await fetch(
     `https://api.github.com/repos/${username}/${name}/contents`,
     {
@@ -20,19 +17,16 @@ export default async function RepoDirs({ name }: RepoProps) {
       },
     }
   )
-
-  const contents: GithubContent[] = await response.json()
-
+  const contents: GitHubContent[] = await response.json()
   const dirs = contents.filter((content) => content.type === 'dir')
-  // console.log(dirs)
-
   return (
-    <div className="mt-2">
+    <div className="mt-2 ">
       <h3 className="text-xl font-bold">Directories</h3>
       <ul>
         {dirs.map((dir) => (
           <li key={dir.path}>
             <Link
+              className="underline"
               href={`https://github.com/${username}/${name}/tree/master/${dir.path}`}
             >
               {dir.path}

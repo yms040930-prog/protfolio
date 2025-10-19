@@ -1,4 +1,5 @@
-export interface GithubContent {
+// types/github.ts
+export interface GitHubContent {
   name: string
   path: string
   sha: string

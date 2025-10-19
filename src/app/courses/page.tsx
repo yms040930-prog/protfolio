@@ -1,9 +1,10 @@
+import React from 'react'
+import courseData from '../api/courses/data.json'
 import { Course } from '@/types/course'
-import coursesData from '../api/courses/data.json'
 import Courses from '@/components/Courses'
 
 export default function CoursesPage() {
-  const courses: Course[] = coursesData
+  const courses: Course[] = courseData
 
   return (
     <div>

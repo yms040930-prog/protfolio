@@ -6,22 +6,22 @@ export default async function DashboardPage() {
 
   if (!isAuthenticated) {
     return (
-      <div>Sign in to view this page. 이 페이지를 보려면 로그인하세요.</div>
+      <div>Sign in to view this page. 이 페이지를 보려면 로그인하세요... </div>
     )
   }
 
   const user = await currentUser()
-  console.log(user)
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-5">Dashboard</h1>
-      <p className="mb-2">Welcome to dashboard</p>
-      <div className="mb-5">
-        <p>Welcome, {user?.firstName}</p>
-        <p>Email: {user?.primaryEmailAddress?.emailAddress} </p>
-        <p>사용자 등록일: {user?.createdAt} </p>
-      </div>
+      <h1 className="text-2xl font-bold mb-5">Dashboard (Server-side) </h1>
+      <p>Welcome to dashboard</p>
+      <p>이 페이지는 로그인된 사용자의 개인정보를 표시합니다. </p>
+      <p>
+        Welcome, {user?.firstName} {user?.lastName}
+      </p>
+      <p>Email: {user?.primaryEmailAddress?.emailAddress} </p>
+      <p>사용자 등록 시간: {user?.createdAt} </p>
     </div>
   )
 }

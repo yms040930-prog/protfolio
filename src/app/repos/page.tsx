@@ -1,13 +1,12 @@
-import { githubuser } from '@/types/constants'
+import { githubuser } from '@/types/constant'
 import { Repository } from '@/types/repo'
 import Link from 'next/link'
-import React from 'react'
-import { FaCodeBranch, FaEye, FaStar } from 'react-icons/fa'
+import { FaStar, FaCodeBranch, FaEye } from 'react-icons/fa'
 
 const username = githubuser
 
 export default async function ReposPage() {
-  // 1. SSG: static site generation
+  // 1. SSG: Static Site Generation
   const response = await fetch(
     `https://api.github.com/users/${username}/repos`,
     {
@@ -16,13 +15,11 @@ export default async function ReposPage() {
       },
     }
   )
-
-  // 2. SSR: Server-side rendering
+  // 2. SSR: Server-Side Rendering
   // const response = await fetch(
   //   `https://api.github.com/users/${username}/repos`,
   //   { cache: 'no-store' }
   // )
-
   // 3. ISR: Incremental Static Generation
   // const response = await fetch(
   //   `https://api.github.com/users/${username}/repos`,
@@ -30,13 +27,13 @@ export default async function ReposPage() {
   // )
 
   await new Promise((resolve) => setTimeout(resolve, 1000))
-
   const repos = await response.json()
   // console.log(repos)
+
   return (
     <div>
       <h2 className="text-2xl font-bold mb-4">
-        Github repositories of {username}
+        Github Repositories of {username}
       </h2>
       <ul>
         {repos.map((repo: Repository) => (
