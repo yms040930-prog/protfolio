@@ -12,7 +12,7 @@ import React from 'react'
 export default function Header() {
   return (
     <div>
-      <nav className="bg-red-900 py-4 px-8">
+      <nav className="bg-green-500 py-4 px-8">
         <div className="flex items-center justify-between container">
           <div className="flex items-center font-bold">
             <Link href="/" className="text-lg text-white">

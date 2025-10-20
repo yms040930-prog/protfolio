@@ -3,7 +3,9 @@ import Link from 'next/link'
 export default function Home() {
   return (
     <>
-      <h1 className="text-2xl mb-4 font-bold">Welcome Home</h1>
+      <h1 className="text-2xl mb-4 font-bold">
+        환영합니다! 포트폴리오 홈입니다.
+      </h1>
       <div className="mb-4 bg-gray-100 p-4 m-4 rounded-lg">
         <Link
           href="https://clerk.com/"
