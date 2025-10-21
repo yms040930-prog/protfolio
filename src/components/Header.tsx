@@ -67,6 +67,15 @@ export default function Header() {
               >
                 Dashboard-C
               </Link>
+
+              {/* ✅ Portfolio 메뉴 추가 */}
+              <Link
+                href="/portfolio"
+                className="text-gray-300 hover:text-white mr-4"
+              >
+                Portfolio
+              </Link>
+
               <div className="text-gray-300 hover:text-white mr-4">
                 <UserButton />
               </div>
