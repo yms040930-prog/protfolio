@@ -35,7 +35,6 @@ export default function DashboardPage() {
           <p className="text-gray-600 leading-relaxed">
             이 페이지는 <b>Next.js</b>와 <b>Tailwind CSS</b>를 활용하여 제작된
             개인 포트폴리오 예제입니다.
-            <br />
           </p>
         </section>
 
@@ -56,6 +55,39 @@ export default function DashboardPage() {
           >
             블로그로 이동하기 →
           </a>
+        </section>
+
+        {/* 깃허브 섹션 */}
+        <section className="mb-8">
+          <h2 className="text-xl font-semibold text-gray-700 mb-3">
+            📂 깃허브 프로젝트
+          </h2>
+          <div className="flex flex-col gap-3">
+            <a
+              href="https://github.com/yms040930-prog"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-gray-800 hover:bg-gray-900 text-white font-semibold py-2 px-4 rounded-lg shadow transition"
+            >
+              🌐 개인 깃허브 프로필
+            </a>
+            <a
+              href="https://github.com/yms040930-prog/clrek-app-2"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-lg shadow transition"
+            >
+              🧩 Clerk App 프로젝트
+            </a>
+            <a
+              href="https://github.com/yms040930-prog/crud"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg shadow transition"
+            >
+              ⚙️ CRUD 프로젝트
+            </a>
+          </div>
         </section>
 
         {/* 기술 스택 */}
