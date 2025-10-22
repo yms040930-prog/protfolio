@@ -16,7 +16,7 @@ export default function Header() {
         <div className="flex items-center justify-between container">
           <div className="flex items-center font-bold">
             <Link href="/" className="text-lg text-white">
-              Clerk App
+              Portfolio
             </Link>
           </div>
 
