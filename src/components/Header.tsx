@@ -1,91 +1,56 @@
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  SignOutButton,
-  SignUpButton,
-  UserButton,
-} from '@clerk/nextjs'
+import { SignInButton, SignOutButton, SignedIn, SignedOut } from '@clerk/nextjs'
 import Link from 'next/link'
 import React from 'react'
+import { FaLaptopCode } from 'react-icons/fa'
 
 export default function Header() {
   return (
-    <div>
-      <nav className="bg-green-500 py-4 px-8">
-        <div className="flex items-center justify-between container">
-          <div className="flex items-center font-bold">
-            <Link href="/" className="text-lg text-white">
-              Portfolio
-            </Link>
-          </div>
-
-          <div className="flex items-center font-bold">
-            <SignedOut>
+    <header>
+      <nav className="bg-gradient-to-r from-green-600 to-teal-500 shadow-xl py-4 px-8">
+        <div className="flex items-center justify-between container mx-auto">
+          {/* 로고 + 슬로건 */}
+          <div className="flex items-center space-x-3">
+            <FaLaptopCode className="text-white text-2xl transition-transform duration-300 hover:scale-110" />
+            <div>
               <Link
-                href="/repos"
-                className="text-gray-300 hover:text-white mr-4"
-              >
-                Repos
-              </Link>
-              <Link
-                href="/courses"
-                className="text-gray-300 hover:text-white mr-4"
-              >
-                Courses
-              </Link>
-              <div className="text-gray-300 hover:text-white mr-4">
-                <SignInButton />
-              </div>
-              <div className="text-gray-300 hover:text-white mr-4">
-                <SignUpButton />
-              </div>
-            </SignedOut>
-
-            <SignedIn>
-              <Link
-                href="/repos"
-                className="text-gray-300 hover:text-white mr-4"
-              >
-                Repos
-              </Link>
-              <Link
-                href="/courses"
-                className="text-gray-300 hover:text-white mr-4"
-              >
-                Courses
-              </Link>
-              <Link
-                href="/dashboard-s"
-                className="text-gray-300 hover:text-white mr-4"
-              >
-                Dashboard-S
-              </Link>
-              <Link
-                href="/dashboard-c"
-                className="text-gray-300 hover:text-white mr-4"
-              >
-                Dashboard-C
-              </Link>
-
-              {/* ✅ Portfolio 메뉴 추가 */}
-              <Link
-                href="/portfolio"
-                className="text-gray-300 hover:text-white mr-4"
+                href="/"
+                className="text-lg text-white font-bold hover:text-yellow-200 transition-colors"
               >
                 Portfolio
               </Link>
+              <p className="text-gray-200 text-sm transition-transform duration-300 hover:translate-x-1">
+                개발과 학습 기록을 한 곳에
+              </p>
+            </div>
+          </div>
 
-              <div className="text-gray-300 hover:text-white mr-4">
-                <UserButton />
-              </div>
-              <div className="text-gray-300 hover:text-white mr-4">
-                <SignOutButton />
-              </div>
+          {/* 내비게이션 & 로그인/로그아웃 */}
+          <div className="flex items-center font-semibold space-x-4">
+            <Link
+              href="/portfolio"
+              className="text-gray-200 hover:text-white transition-colors"
+            >
+              Portfolio
+            </Link>
+
+            <SignedIn>
+              <SignOutButton>
+                <button className="bg-white text-green-600 px-4 py-1 rounded-lg shadow hover:bg-gray-100 transition-transform duration-300 hover:translate-y-[-2px]">
+                  Sign Out
+                </button>
+              </SignOutButton>
             </SignedIn>
+
+            <SignedOut>
+              <SignInButton>
+                <button className="bg-white text-green-600 px-4 py-1 rounded-lg shadow hover:bg-gray-100 transition-transform duration-300 hover:translate-y-[-2px]">
+                  Sign In
+                </button>
+              </SignInButton>
+            </SignedOut>
           </div>
         </div>
       </nav>
-    </div>
+    </header>
   )
 }
